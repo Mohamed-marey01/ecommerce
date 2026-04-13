@@ -4,17 +4,16 @@ import './Checkout.css';
 
 const Checkout = () => {
   const navigate = useNavigate();
-  const serverURL = process.env.REACT_APP_API_URL;
   const [shippingData, setShippingData] = useState({
     firstName: '',
     lastName: '',
     address: '',
     city: ''
   });
+  
   const orders = JSON.parse(localStorage.getItem('orders')) ? Object.values(JSON.parse(localStorage.getItem('orders'))) : [];
   const total = orders.reduce((sum, order) => sum + Number(order.price), 0).toFixed(2);
-  // const cart = JSON.parse(localStorage.getItem('cart')) || {};
-    const cart = localStorage.getItem('cart') || {};
+  const cart = localStorage.getItem('cart') || {};
   const ordersCount = JSON.parse(localStorage.getItem('ordersCount')) || 0;
   console.log('The orders', orders);
   console.log('The total', total);
@@ -40,7 +39,7 @@ const Checkout = () => {
     }
 
     try {
-      const response = await fetch(`${serverURL}/api/orders`, {
+      const response = await fetch(`https://ecommerce-backend-theta-nine.vercel.app/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
