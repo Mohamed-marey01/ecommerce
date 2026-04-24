@@ -1,0 +1,242 @@
+/* CustomerProducts.css */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  position: relative;
+  transition: all var(--transition-speed);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--glow-shadow);
+  border-color: rgba(139, 92, 246, 0.6);
+  z-index: 50;
+}
+
+.product-image-wrapper {
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image-placeholder {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.product-img-element {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.product-actions {
+  display: flex !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.btn-add-cart-main {
+  flex: 1;
+}
+
+.product-actions {
+  transition: all 0.3s ease;
+}
+
+.product-info .product-actions {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.product-card:hover .product-info .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.btn-add-cart {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+}
+
+.page-title span {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Product Hover Popup --- */
+.product-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 20, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-card:hover .product-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.popup-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  background: rgba(255,255,255,0.1);
+}
+
+.popup-brand {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.2rem 0;
+}
+
+.popup-title-text {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+}
+
+.popup-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.popup-price-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.popup-qty {
+  font-size: 0.9rem;
+  color: #aaa;
+  background: rgba(255,255,255,0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.popup-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ccc;
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding-right: 0.5rem;
+}
+
+.popup-desc::-webkit-scrollbar {
+  width: 4px;
+}
+.popup-desc::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.btn-whatsapp {
+    transition: all 0.3s ease !important;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(37, 211, 102, 0.2);
+    color: #25D366;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  grid-column: 1 / -1;
+  opacity: 0.7;
+}
+
+.popup-actions-wrapper {
+  margin-top: auto;
+  padding-top: 1rem;
+}
